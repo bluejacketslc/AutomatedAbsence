@@ -18,7 +18,7 @@ class WebLogin:
         self.driver.find_element_by_xpath("//input[@name='password']").send_keys(self.credential['password'])
         self.driver.find_element_by_xpath("//input[@value='Login']").send_keys(Keys.ENTER)
 
-        # WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "Home_logoBox")))
+        WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.XPATH, "//div[@class='pusher']")))
 
     def fill_log_book(self, url, absence):
         self.driver.get(url)
@@ -30,7 +30,7 @@ class WebLogin:
         self.driver.find_element_by_xpath("//input[@name='activity']").send_keys(absence['activity_title'])
         self.driver.find_element_by_xpath("//textarea[@name='description']").send_keys(absence['activity_detail'])
 
-        # self.driver.find_element_by_xpath("//button[@class='ui primary large button']").send_keys(Keys.ENTER)
+        self.driver.find_element_by_xpath("//button[@class='ui primary large button']").send_keys(Keys.ENTER)
 
 
 
